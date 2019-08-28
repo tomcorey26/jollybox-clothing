@@ -1,6 +1,7 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
 import { connect } from "react-redux";
+
 import "./App.css";
 
 import Header from "./components/header/header.component";
@@ -8,9 +9,11 @@ import HomePage from "./pages/homepage/homepage.component";
 import ShopPage from "./pages/shop/shop.component";
 import SignInAndSignUpPage from "./pages/sign-in-and-sign-up/sign-in-and-sign-up.component";
 import { auth, createUserProfileDocument } from "./firebase/firebase.utils";
-
-//redux action
 import { setCurrentUser } from "./redux/user/user.actions";
+
+
+import { setCurrentUser } from "./redux/user/user.actions";
+
 
 class App extends React.Component {
   unsubscribeFromAuth = null;
@@ -20,6 +23,7 @@ class App extends React.Component {
 
     this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
       if (userAuth) {
+        //either creates profile or returns if account already created
         const userRef = await createUserProfileDocument(userAuth);
 
         //listens for the change made by

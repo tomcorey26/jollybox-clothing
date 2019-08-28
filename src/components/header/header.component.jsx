@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 
 import { connect } from "react-redux";
 
@@ -35,6 +36,7 @@ const Header = ({ currentUser }) => (
 );
 
 //this state passed in is the top level root reducer
+
 const mapStateToProps = state => ({
   currentUser: state.user.currentUser
 });
