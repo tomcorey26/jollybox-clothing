@@ -2,6 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
+import { connect } from "react-redux";
+
 import { auth } from "../../firebase/firebase.utils";
 
 import { ReactComponent as Logo } from "../../assets/crown.svg";
@@ -32,6 +34,8 @@ const Header = ({ currentUser }) => (
     </div>
   </div>
 );
+
+//this state passed in is the top level root reducer
 
 const mapStateToProps = state => ({
   currentUser: state.user.currentUser
